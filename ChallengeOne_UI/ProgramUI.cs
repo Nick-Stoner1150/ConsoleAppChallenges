@@ -1,4 +1,5 @@
-﻿using ChallengeOne_Repos;
+﻿using ChalleneOne.POCOs;
+using ChallengeOne_Repos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace ChallengeOne_UI
 
         public void Run ()
         {
-
+            RunMenu();
         }
 
         public void RunMenu()
@@ -52,12 +53,35 @@ namespace ChallengeOne_UI
 
         private void ShowMenuItems()
         {
-            throw new NotImplementedException();
+            List<Menu> listOfMenuItems = _menuRepo.ShowMenu();
+
+            _menuRepo.WriteMenuItems(listOfMenuItems);
+
+            
         }
 
         private void CreateMenuItem()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+
+            Console.WriteLine("Enter the Menu Item Number (digit only: Ex: 3):");
+            int mealNumber = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Menu Item Name: ");
+            string mealName = Console.ReadLine();
+
+            Console.WriteLine("Enter Menu Item Description: ");
+            string description = Console.ReadLine();
+
+            Console.WriteLine("Enter Menu Item Ingredient (enter one at a time, pressing enter after each ingredient. " +
+                "Press enter twice to complete list of ingredients): ");
+            List<string> listOfIngredients = AddListOfIngredients();
+
+            Console.WriteLine("Enter Price of Menu Item: ");
+            decimal mealPrice = Decimal.Parse(Console.ReadLine());
+
+            Menu newMenuItem = new Menu(mealNumber, mealName, description, listOfIngredients, mealPrice);
+            _menuRepo.AddMenuItemToList(newMenuItem);
         }
 
         public void DisplayMenu()
@@ -71,6 +95,25 @@ namespace ChallengeOne_UI
                               $"4. Exit Application");
         }
 
+        public List<string> AddListOfIngredients ()
+        {
+            List<string> listOfIngredients = new List<string>();
+
+            bool stillAdding = true;
+            while (stillAdding)
+            {
+                string userInput = Console.ReadLine();
+                if (userInput != "")
+                {
+                    listOfIngredients.Add(userInput);
+                }
+                else
+                {
+                    stillAdding = false;
+                }
+            }
+            return listOfIngredients;
+        }
 
     }
 }

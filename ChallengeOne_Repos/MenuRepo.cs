@@ -69,5 +69,20 @@ namespace ChallengeOne_Repos
 
             return null;
         }
+
+        public void WriteMenuItems(List<Menu> listOfMenuItems)
+        {
+            foreach (Menu item in listOfMenuItems)
+            {
+                Console.WriteLine($"#{item.MealNumber}). {item.Name}\n" +
+                                  $"{item.Description}\n" +
+                                  $"{item.Price}\n" +
+                                  $"Ingredients: ");
+                foreach (var ingredient in item.Ingredients)
+                {
+                    Console.WriteLine($"{ingredient}");
+                }
+            }
+        }
     }
 }

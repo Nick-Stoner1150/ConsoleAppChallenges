@@ -51,6 +51,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ChalleneOne.POCOs\ChalleneOne.POCOs.csproj">
+      <Project>{161AB173-F1FA-4E52-B79E-C9F11D31E56C}</Project>
+      <Name>ChalleneOne.POCOs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ChallengeOne_Repos\ChallengeOne_Repos.csproj">
       <Project>{35574106-F035-48F5-84B7-FA34878642C7}</Project>
       <Name>ChallengeOne_Repos</Name>

@@ -27,5 +27,6 @@ namespace ChalleneOne.POCOs
             Ingredients = ingredients;
             Price = price;
         }
+
     }
 }
