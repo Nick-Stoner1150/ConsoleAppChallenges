@@ -76,11 +76,12 @@ namespace ChallengeTwo_UI
 
         public void WriteClaimsInQueue(Queue<Claims> claimsQueue)
         {
+            Console.WriteLine($" {"Claim ID",-15} {"Description",-25} {"Claim Amount",-10} {"Date Of Accident",25} {"Date Of Claim",25} {"Is Valid",25}\n");
             foreach (Claims claim in claimsQueue)
             {
-                Console.WriteLine($"ClaimID          Type         Description                 Amount              DateOfAccident         DateOfClaim           IsValid\n" +
-                                  $"{claim.ClaimID}  {claim.Type} {claim.Descripion}          {claim.ClaimAmount} {claim.DateOfIncident} {claim.DateOfClaim}   {claim.IsValid}\n" +
-                                  $"--------------------------------------------------------------------------------------------------------------------------------------------");
+
+                Console.WriteLine($"{claim.ClaimID,5}  {claim.Descripion,25} {claim.ClaimAmount,20} {claim.DateOfIncident,30} {claim.DateOfClaim,30} {claim.IsValid,15}");
+                Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------");
             }
         }
 
