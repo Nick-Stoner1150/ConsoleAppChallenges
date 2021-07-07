@@ -71,7 +71,7 @@ namespace ChallengeOne_UI
             Console.Clear();
             List<Menu> listOfMenuItems = _menuRepo.ShowMenu();
 
-            _menuRepo.WriteMenuItems(listOfMenuItems);
+            WriteMenuItems(listOfMenuItems);
 
             
         }
@@ -131,6 +131,23 @@ namespace ChallengeOne_UI
             return listOfIngredients;
         }
 
+        public void WriteMenuItems(List<Menu> listOfMenuItems)
+        {
+            foreach (Menu item in listOfMenuItems)
+            {
+                Console.WriteLine($"#{item.MealNumber}) {item.Name} -- {item.Description}\n" +
+                                  $"\n" +
+                                  $"Price: ${item.Price}\n" +
+                                  $"\n" +
+                                  $"Ingredients: ");
+                foreach (var ingredient in item.Ingredients)
+                {
+                    Console.WriteLine($"{ingredient}");
+                }
+                Console.WriteLine("**********************************");
+            }
+
+        }
         public void SeedMenuItems()
         {
             Menu menuItem1 = new Menu(1, "Baconator", "Double stacked burger with the world's best bacon!", new List<string> { "cheese", "mayonaise", "beef", "ketchup" }, 5.99m);

@@ -9,18 +9,29 @@ namespace ChallengeTwo_Repos
 {
     public class ClaimsRepo
     {
-        private List<Claims> _listOfClaims = new List<Claims>();
-
+        private Queue<Claims> _queueOfClaims = new Queue<Claims>();
+        static int tableWidth = 73;
         // Create 
         public void AddClaimToList(Claims claim)
         {
-            _listOfClaims.Add(claim);
+            _queueOfClaims.Enqueue(claim);
         }
 
         // Read 
-        public List<Claims> ShowClaimsList()
+        public Queue<Claims> ShowClaimsList()
         {
-            return _listOfClaims;
+            return _queueOfClaims;
         }
+
+
+        // Helper Methods 
+        public void WriteListOfClaims(Queue<Claims> claimsQueue)
+        {
+            foreach (Claims claim in listOfClaims)
+            {
+                Console.WriteLine(""
+            }
+        }
+
     }
 }

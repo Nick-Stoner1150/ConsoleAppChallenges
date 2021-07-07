@@ -50,5 +50,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChallengeTwo_POCO\ChallengeTwo_POCO.csproj">
+      <Project>{5DFB9A7E-4B77-4E56-B1AA-3D3F67CC9A32}</Project>
+      <Name>ChallengeTwo_POCO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChallengeTwo_Repos\ChallengeTwo_Repos.csproj">
+      <Project>{5FBBD069-A247-430C-9264-034E23DF25B8}</Project>
+      <Name>ChallengeTwo_Repos</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

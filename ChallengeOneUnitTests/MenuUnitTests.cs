@@ -60,9 +60,10 @@ namespace ChallengeOneUnitTests
             List<Menu> listOfMenuItems = repo.ShowMenu();
 
             //Assert 
-            Assert.IsNotNull(listOfMenuItems);
+            Assert.AreEqual(3, listOfMenuItems.Count);
         }
 
+        // Delete Method
         [TestMethod]
 
         public void DeleteMenuItem_ShouldReturnTrue()
