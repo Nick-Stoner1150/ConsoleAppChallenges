@@ -14,7 +14,8 @@ namespace ChallengeTwo_UI
 
         public void Run()
         {
-
+            SeedClaims();
+            RunMenu();
         }
 
         private void RunMenu()
@@ -52,18 +53,6 @@ namespace ChallengeTwo_UI
         {
             throw new NotImplementedException();
         }
-
-        private void SeeAllClaims()
-        {
-            Console.Clear();
-
-            List<Claims> listOfClaims = _claimsRepo.ShowClaimsList();
-
-
-        }
-
-
-
         private void DisplayMenu()
         {
                 Console.WriteLine($"-------Komodo Claims Department-------\n" +
@@ -75,5 +64,32 @@ namespace ChallengeTwo_UI
                                  $"3. Enter a new claim\n" +
                                  $"4. Exit Application");
         }
+
+        public void SeeAllClaims()
+        {
+            Console.Clear();
+            Queue<Claims> claimsInQueue = _claimsRepo.ShowClaimsList();
+
+            WriteClaimsInQueue(claimsInQueue);
+
+        }
+
+        public void WriteClaimsInQueue(Queue<Claims> claimsQueue)
+        {
+            foreach (Claims claim in claimsQueue)
+            {
+                Console.WriteLine($"ClaimID          Type         Description                 Amount              DateOfAccident         DateOfClaim           IsValid\n" +
+                                  $"{claim.ClaimID}  {claim.Type} {claim.Descripion}          {claim.ClaimAmount} {claim.DateOfIncident} {claim.DateOfClaim}   {claim.IsValid}\n" +
+                                  $"--------------------------------------------------------------------------------------------------------------------------------------------");
+            }
+        }
+
+        public void SeedClaims()
+        {
+            Claims claim1 = new Claims(1, Claims.ClaimType.Car, "The car was broken into", 1083.99m, new DateTime(2021, 1, 20), new DateTime(2020, 1, 29), true);
+
+            _claimsRepo.AddClaimToList(claim1);
+        }
+
     }
 }

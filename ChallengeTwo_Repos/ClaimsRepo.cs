@@ -22,16 +22,5 @@ namespace ChallengeTwo_Repos
         {
             return _queueOfClaims;
         }
-
-
-        // Helper Methods 
-        public void WriteListOfClaims(Queue<Claims> claimsQueue)
-        {
-            foreach (Claims claim in listOfClaims)
-            {
-                Console.WriteLine(""
-            }
-        }
-
     }
 }
