@@ -14,6 +14,7 @@ namespace ChallengeOne_UI
 
         public void Run ()
         {
+            SeedMenuItems();
             RunMenu();
         }
 
@@ -48,11 +49,26 @@ namespace ChallengeOne_UI
 
         private void DeleteMenuItem()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+
+            Console.WriteLine("Enter the Menu Item Number that you would like to remove:");
+            int itemToDelete = int.Parse(Console.ReadLine());
+
+            bool wasDeleted = _menuRepo.RemoveMenuItemFromMenu(itemToDelete);
+            
+            if (wasDeleted)
+            {
+                Console.WriteLine($"Menu Item #{itemToDelete} was sucessfully deleted.");
+            }
+            else
+            {
+                Console.WriteLine("The Menu Item was not deleted.");
+            }
         }
 
         private void ShowMenuItems()
         {
+            Console.Clear();
             List<Menu> listOfMenuItems = _menuRepo.ShowMenu();
 
             _menuRepo.WriteMenuItems(listOfMenuItems);
@@ -115,5 +131,15 @@ namespace ChallengeOne_UI
             return listOfIngredients;
         }
 
+        public void SeedMenuItems()
+        {
+            Menu menuItem1 = new Menu(1, "Baconator", "Double stacked burger with the world's best bacon!", new List<string> { "cheese", "mayonaise", "beef", "ketchup" }, 5.99m);
+            Menu menuItem2 = new Menu(2, "Jr. Baconator", "Just like the Baconator, just smaller!", new List<string> { "cheese", "mayonaise", "beef", "ketchup" }, 3.99m);
+            Menu menuItem3 = new Menu(3, "Spicy Chicken Nuggets", "Our famous chicken nuggets with a little kick", new List<string> { "chicken", "nugget", "salt", "pepper" }, 2.99m);
+
+            _menuRepo.AddMenuItemToList(menuItem1);
+            _menuRepo.AddMenuItemToList(menuItem2);
+            _menuRepo.AddMenuItemToList(menuItem3);
+        }
     }
 }

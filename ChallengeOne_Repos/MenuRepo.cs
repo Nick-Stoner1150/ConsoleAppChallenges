@@ -74,15 +74,18 @@ namespace ChallengeOne_Repos
         {
             foreach (Menu item in listOfMenuItems)
             {
-                Console.WriteLine($"#{item.MealNumber}). {item.Name}\n" +
-                                  $"{item.Description}\n" +
-                                  $"{item.Price}\n" +
+                Console.WriteLine($"#{item.MealNumber}) {item.Name} -- {item.Description}\n" +
+                                  $"\n" +
+                                  $"Price: ${item.Price}\n" +
+                                  $"\n" +
                                   $"Ingredients: ");
                 foreach (var ingredient in item.Ingredients)
                 {
                     Console.WriteLine($"{ingredient}");
                 }
+                Console.WriteLine("**********************************");
             }
+            
         }
     }
 }
