@@ -10,7 +10,7 @@ namespace ChallengeTwo_Repos
     public class ClaimsRepo
     {
         private Queue<Claims> _queueOfClaims = new Queue<Claims>();
-        static int tableWidth = 73;
+        
         // Create 
         public void AddClaimToList(Claims claim)
         {
@@ -21,6 +21,20 @@ namespace ChallengeTwo_Repos
         public Queue<Claims> ShowClaimsList()
         {
             return _queueOfClaims;
+        }
+
+        // Peek In Queue 
+        public Claims PeekNextClaim()
+        {
+            Claims peekedClaim = _queueOfClaims.Peek();
+            return peekedClaim;
+        }
+
+        public Claims DequeueClaim ()
+        {
+            Claims dequeuedClaim = _queueOfClaims.Dequeue();
+            return dequeuedClaim;
+            return dequeuedClaim;
         }
     }
 }
