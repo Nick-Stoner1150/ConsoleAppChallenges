@@ -44,5 +44,11 @@
     <Compile Include="BadgeRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChallengeThree_Pocos\ChallengeThree_Pocos.csproj">
+      <Project>{EA1D089C-01F4-4248-900A-A7A826A5761F}</Project>
+      <Name>ChallengeThree_Pocos</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

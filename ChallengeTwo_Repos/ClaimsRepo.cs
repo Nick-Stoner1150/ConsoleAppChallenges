@@ -34,7 +34,6 @@ namespace ChallengeTwo_Repos
         {
             Claims dequeuedClaim = _queueOfClaims.Dequeue();
             return dequeuedClaim;
-            return dequeuedClaim;
         }
     }
 }
