@@ -10,11 +10,20 @@ namespace ChallengeTwo_Repos
     public class ClaimsRepo
     {
         private Queue<Claims> _queueOfClaims = new Queue<Claims>();
-        
+        private int _idCounter;
+
         // Create 
-        public void AddClaimToList(Claims claim)
+        public bool AddClaimToList(Claims claim)
         {
+            if (claim is null)
+            {
+                return false;
+            }
+
+            claim.ClaimID = ++_idCounter;
             _queueOfClaims.Enqueue(claim);
+
+            return true;
         }
 
         // Read 

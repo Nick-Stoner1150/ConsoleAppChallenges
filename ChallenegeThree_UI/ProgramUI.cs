@@ -37,7 +37,6 @@ namespace ChallenegeThree_UI
                         break;
                 }
 
-
             }
         }
 
@@ -90,7 +89,6 @@ namespace ChallenegeThree_UI
                     Console.WriteLine("List a door you want to add: ");
                     string doorToAdd = Console.ReadLine();
                     badgeToUpdate.DoorNames.Add(doorToAdd);
-
                     break;
             }
         }

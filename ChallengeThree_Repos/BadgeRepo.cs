@@ -10,11 +10,18 @@ namespace ChallengeThree_Repos
     public class BadgeRepo
     {
         Dictionary<int, List<string>> _badgeDictionary = new Dictionary<int, List<string>>();
-
+        
         // Create 
-        public void AddBadgeToDictionary (Badge badge)
+        public bool AddBadgeToDictionary (Badge badge)
         {
+            if (badge is null)
+            {
+                return false;
+            }
+
             _badgeDictionary.Add(badge.BadgeID, badge.DoorNames);
+
+            return true;
         }
 
         // Read 
@@ -28,7 +35,18 @@ namespace ChallengeThree_Repos
         }
 
         // Update 
-        /* public bool UpdateBadge(int badgeID, Badge newBadge)
+        /* public void AddDoor()
+        {
+
+        }
+
+        public void RemoveDoor(string doorToRemove)
+        {
+
+        }
+
+        
+         /* public void AddDoor(List<string> doorNames)
         {
             Badge oldBadge = GetBadgeByBadgeID(badgeID);
 
@@ -36,9 +54,10 @@ namespace ChallengeThree_Repos
             {
                 if (oldBadge.BadgeID == content.Key)
                 {
-                    
+                    content.Value.Add(doorNames);
                 }
             }
+            return false;
         } */
         // Delete 
 
@@ -51,21 +70,6 @@ namespace ChallengeThree_Repos
                 if (content.Key == badgeID)
                 {
                     return new Badge(content.Key, content.Value);
-                }
-            }
-            return null;
-        }
-
-        public string GetDoorName (string doorName)
-        {
-            foreach (var content in _badgeDictionary)
-            {
-                foreach (var item in content.Value)
-                {
-                    if (item == doorName)
-                    {
-                        return item;
-                    }
                 }
             }
             return null;
